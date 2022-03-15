@@ -22,7 +22,7 @@ export class TodoController {
         return {
             statusCode: HttpStatus.OK,
             message: 'Todo list fetched successfully',
-            todo,
+            todo
         };
     }
 
@@ -32,7 +32,7 @@ export class TodoController {
         return {
             statusCode: HttpStatus.OK,
             message: 'Todo created successfully',
-            todo,
+            todo
         };
     }
 
@@ -41,7 +41,7 @@ export class TodoController {
         await this.todoService.modify(id, data);
         return {
             statusCode: HttpStatus.OK,
-            message: 'Todo modified successfully',
+            message: 'Todo modified successfully'
         };
     }
 
@@ -50,7 +50,7 @@ export class TodoController {
         await this.todoService.delete(id);
         return {
             statusCode: HttpStatus.OK,
-            message: 'Todo deleted successfully',
+            message: 'Todo deleted successfully'
         };
     }
 }
