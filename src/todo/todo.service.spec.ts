@@ -6,11 +6,13 @@ import { TodoService } from './todo.service';
 describe('TodoService', () => {
   let service: TodoService;
 
-  const mockTodoRepository = {};
+  const mockTodoRepository = {
+    create: jest.fn().mockImplementation(dto => dto),
+    save: jest.fn().mockImplementation(todoEntity => Promise.resolve({ id: 1, ...todoEntity }))
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      // imports: [TypeOrmModule.forRoot(), TypeOrmModule.forFeature([TodoEntity])],
       providers: [TodoService, {
         provide: getRepositoryToken(TodoEntity),
         useValue: mockTodoRepository,
@@ -23,4 +25,12 @@ describe('TodoService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should create new todo and return it', async () => {
+    const dto = { id: 1, description: 'Testing' };
+    expect(await service.add(dto)).toEqual({
+      id: expect.any(Number),
+      description: 'Testing',
+    })
+  })
 });
