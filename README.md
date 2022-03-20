@@ -1,4 +1,4 @@
-- **Logical Architecture**
+# Logical Architecture
 <p align="center">
   <img src="./LogicalArchitecture.png">
 </p>
