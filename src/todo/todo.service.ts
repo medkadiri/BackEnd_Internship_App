@@ -10,7 +10,7 @@ export class TodoService {
     constructor(
         @InjectRepository(TodoEntity)
         private todoRepository: Repository<TodoEntity>,
-    ){}
+    ) { }
 
     async listAll() {
         return await this.todoRepository.find();

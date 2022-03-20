@@ -1,4 +1,4 @@
-import { 
+import {
     Controller,
     Get,
     Post,
@@ -14,7 +14,7 @@ import { TodoDTO } from './todo.dto';
 
 @Controller('todo')
 export class TodoController {
-    constructor(private todoService: TodoService) {}
+    constructor(private todoService: TodoService) { }
 
     @Get()
     async listAll() {
